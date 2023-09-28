@@ -40,4 +40,5 @@ ntp-client
 *.out
 *.app
 
-Tasks/HelloWorld/mbed-os.lib
+# mbed shared libraries
+mbed-os.lib
