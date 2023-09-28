@@ -1,31 +1,30 @@
 #include "mbed.h"
+#include <vector>
+#include <math.h>
 
-// Create a DigitalOut “object” called greenLED. Pass constant LED1 as a “parameter”
+// Create a DigitalOut "object"
 DigitalOut greenLED(LED1);
+DigitalOut blueLED(LED2);
+DigitalOut redLED(LED3);
 
-//These are "commented out" and so are not part of the program. You can uncomment them by removing the // characters
-//Your task is to make a sequence alternating between Green+Red and just Blue 
-//DigitalOut blueLED(LED2);
-//DigitalOut redLED(LED3);
+// Microsecond multiplier
+int MULT_US_MULT= pow(10, 6);
 
-//The main function - all executable C / C++ applications have a main function. This is our entry point in the software
-int main() 
+void rgbLED(vector<bool> rgb)
 {
-    // ALL the repeating code is contained in a  “while loop”
-    while(true) 
-    { 
-        //The code between the { curly braces } is the code that is repeated forever
+    redLED = rgb[0];
+    greenLED = rgb[1];
+    blueLED = rgb[2];
+}
 
-        // Turn onboard LED ON  
-        greenLED = 1; 
+int main()
+{
+    while(true)
+    {
+        rgbLED({0, 0, 1});
+        wait_us(MULT_US_MULT * 0.5);
 
-        // Wait 0.2 second (1 million microseconds)
-        wait_us(100000); 
-
-        // Turn LED OFF
-        greenLED = 0;
-
-        // Wait 0.2 second
-        wait_us(100000); 
+        rgbLED({1, 1, 0});
+        wait_us(MULT_US_MULT * 0.5);
     }
 }
