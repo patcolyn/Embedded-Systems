@@ -39,3 +39,5 @@ ntp-client
 *.exe
 *.out
 *.app
+
+Tasks/HelloWorld/mbed-os.lib
