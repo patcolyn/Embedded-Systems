@@ -8,7 +8,7 @@ DigitalOut blueLED(LED2);
 DigitalOut redLED(LED3);
 
 // Microsecond multiplier
-int MULT_US_MULT= pow(10, 6);
+int MULT_US_SEC= pow(10, 6);
 
 void rgbLED(vector<bool> rgb)
 {
@@ -22,9 +22,9 @@ int main()
     while(true)
     {
         rgbLED({0, 0, 1});
-        wait_us(MULT_US_MULT * 0.5);
+        wait_us(MULT_US_SEC * 0.5);
 
         rgbLED({1, 1, 0});
-        wait_us(MULT_US_MULT * 0.5);
+        wait_us(MULT_US_SEC * 0.5);
     }
 }
