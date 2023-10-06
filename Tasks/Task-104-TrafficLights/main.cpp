@@ -25,7 +25,7 @@ int main()
         red = 1;
         amber = 0;
         green = 0;*/
-        lightsBus = 1; //001
+        lightsBus = 0b001;
         lcd.cls();
         lcd.puts("RED");
         while(t.elapsed_time() < 10s);
@@ -34,7 +34,7 @@ int main()
         /*red = 1;
         amber = 1;
         green = 0;*/
-        lightsBus = 3; // 011
+        lightsBus = 0b011;
         lcd.cls();
         lcd.puts("RED + YELLOW");
         t.reset();
@@ -44,7 +44,7 @@ int main()
         /*red = 0;
         amber = 0;
         green = 1;*/
-        lightsBus = 4; // 100
+        lightsBus = 0b100;
         lcd.cls();
         lcd.puts("GREEN");
         while(t.elapsed_time() < 10s);    
@@ -57,13 +57,13 @@ int main()
         for(int i = 0; i <= 3; ++i)
         {
             //amber = 1;
-            lightsBus = 2; // 010
+            lightsBus = 0b010;
             t.reset();
             while(t.elapsed_time() < 0.25s);
             //wait_us(0.25f * S_TO_US_MULT);
             
             //amber = 0;
-            lightsBus = 0; // 000
+            lightsBus = 0b000;
             while(t.elapsed_time() < 0.5s);
             //wait_us(0.25f * S_TO_US_MULT);
         }
